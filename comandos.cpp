@@ -36,3 +36,12 @@ void reverse(ABBSecuencias &abb, string nombreSecuencia, string nombreNuevaSecue
 void show(ABBSecuencias abb) {
     listarArbolDeSecuencias(abb);
 }
+
+
+void suma(ABBSecuencias abb, string nombreSecuencia) {
+
+    if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
+        Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia);
+        printf("%i\n", sumarValoresDeListaDeNumerosNaturales(secuencia.lista));
+    }
+}

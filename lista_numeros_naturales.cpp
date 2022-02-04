@@ -63,3 +63,12 @@ ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales list
     delete[] numeros;
     return nuevaLista;
 }
+
+int sumarValoresDeListaDeNumerosNaturales(ListaNumerosNaturales lista) {
+    int suma = 0;
+    while (lista != NULL) {
+        suma = suma + lista->valor;
+        lista = lista->nodoSiguiente;
+    }
+    return suma;
+}
