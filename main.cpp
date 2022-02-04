@@ -35,6 +35,7 @@ int main() {
     _getch();
     return 0;
 
+    // ESTO es para testing de santi
 
     ListaNumerosNaturales lista = crearListaDeNumerosNaturales();
 
