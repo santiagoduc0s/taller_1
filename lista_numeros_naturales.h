@@ -36,4 +36,7 @@ int tamanioDeListaDeNumerosNaturales(ListaNumerosNaturales lista);
 ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales lista);
 
 
+int sumarValoresDeListaDeNumerosNaturales(ListaNumerosNaturales lista);
+
+
 #endif

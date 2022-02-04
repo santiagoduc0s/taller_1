@@ -11,4 +11,6 @@ void reverse(ABBSecuencias &abb, string nombreSecuencia, string nombreNuevaSecue
 
 void show(ABBSecuencias abb);
 
+void suma(ABBSecuencias abb, string nombreSecuencia);
+
 #endif

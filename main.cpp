@@ -1,6 +1,4 @@
 #include "comandos.h"
-#include <conio.h>
-
 
 int main() {
 
@@ -30,9 +28,11 @@ int main() {
     // reverse pepe invpepe
     reverse(abb, string("pepe"), string("invpepe"));
 
+    // suma
+    suma(abb, string("pepe"));
+
     show(abb);
 
-    _getch();
     return 0;
 
     // ESTO es para testing de santi
@@ -45,6 +45,8 @@ int main() {
     agregarNumeroAListaDeNumerosNaturales(lista, 4);
     agregarNumeroAListaDeNumerosNaturales(lista, 5);
     agregarNumeroAListaDeNumerosNaturales(lista, 64);
+
+//    printf("%i", sumarValoresDeListaDeNumerosNaturales(lista));
 
     mostrarListaDeNumerosNaturales(lista);
 
