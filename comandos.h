@@ -13,4 +13,6 @@ void show(ABBSecuencias abb);
 
 void suma(ABBSecuencias abb, string nombreSecuencia);
 
+void concat(ABBSecuencias &abb, string nombreSecuenciaA, string nombreSecuenciaB, string nombreNuevaSecuencia);
+
 #endif

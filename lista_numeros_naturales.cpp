@@ -72,3 +72,20 @@ int sumarValoresDeListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     }
     return suma;
 }
+
+ListaNumerosNaturales unirDosListasDeNumerosNaturales(ListaNumerosNaturales listaA, ListaNumerosNaturales listaB) {
+
+    ListaNumerosNaturales nuevaLista = crearListaDeNumerosNaturales();
+
+    while (listaA != NULL) {
+        agregarNumeroAListaDeNumerosNaturales(nuevaLista, listaA->valor);
+        listaA = listaA->nodoSiguiente;
+    }
+
+    while (listaB != NULL) {
+        agregarNumeroAListaDeNumerosNaturales(nuevaLista, listaB->valor);
+        listaB = listaB->nodoSiguiente;
+    }
+
+    return nuevaLista;
+}

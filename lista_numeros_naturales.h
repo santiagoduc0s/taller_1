@@ -39,4 +39,7 @@ ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales list
 int sumarValoresDeListaDeNumerosNaturales(ListaNumerosNaturales lista);
 
 
+ListaNumerosNaturales unirDosListasDeNumerosNaturales(ListaNumerosNaturales listaA, ListaNumerosNaturales listaB);
+
+
 #endif

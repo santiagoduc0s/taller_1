@@ -29,4 +29,7 @@ void mostrarString(string str);
 boolean compararStrings(string a, string b);
 
 
+boolean primerStringAlfabeticameteMenor(string a, string b);
+
+
 #endif
