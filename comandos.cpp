@@ -24,11 +24,14 @@ void insback(ABBSecuencias &abb, string nombreSecuencia, int numero) {
 void reverse(ABBSecuencias &abb, string nombreSecuencia, string nombreNuevaSecuencia) {
 
     if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
-        Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia);
-        secuencia.lista = invertirListaDeNumerosNaturales(secuencia.lista);
-        secuencia.nombre = nombreNuevaSecuencia;
 
-        agregarSecuenciaAlArbolDeSecuancias(abb, secuencia);
+        Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia);
+
+        Secuencia nuevaSecuencia;
+        nuevaSecuencia.lista = invertirListaDeNumerosNaturales(secuencia.lista);
+        nuevaSecuencia.nombre = nombreNuevaSecuencia;
+
+        agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
     }
 }
 
@@ -43,5 +46,21 @@ void suma(ABBSecuencias abb, string nombreSecuencia) {
     if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
         Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia);
         printf("%i\n", sumarValoresDeListaDeNumerosNaturales(secuencia.lista));
+    }
+}
+
+
+void concat(ABBSecuencias &abb, string nombreSecuenciaA, string nombreSecuenciaB, string nombreNuevaSecuencia) {
+
+    if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuenciaA)
+        && existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuenciaB)) {
+        Secuencia secuenciaA = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuenciaA);
+        Secuencia secuenciaB = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuenciaB);
+
+        Secuencia nuevaSecuencia;
+        nuevaSecuencia.lista = unirDosListasDeNumerosNaturales(secuenciaA.lista, secuenciaB.lista);
+        nuevaSecuencia.nombre = nombreNuevaSecuencia;
+
+        agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
     }
 }

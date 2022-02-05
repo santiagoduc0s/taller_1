@@ -103,3 +103,10 @@ void leerString(string &s, FILE *archivo) {
     copiarString(aux, s);
     eliminarString(aux);
 }
+
+
+// todo: implementar correctamente
+boolean primerStringAlfabeticameteMenor(string a, string b) {
+    return boolean(a[0] < b[0]);
+}
+
