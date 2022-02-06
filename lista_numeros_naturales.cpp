@@ -89,3 +89,27 @@ ListaNumerosNaturales unirDosListasDeNumerosNaturales(ListaNumerosNaturales list
 
     return nuevaLista;
 }
+
+void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE *archivo) {
+
+    while (lista != NULL) {
+        fwrite(&lista->valor, sizeof(int), 1, archivo);
+        lista = lista->nodoSiguiente;
+    }
+    int endList = -1;
+    fwrite(&endList, sizeof(int), 1, archivo);
+}
+
+ListaNumerosNaturales leerListaDeNumerosNaturalesDeArchivo(FILE *archivo) {
+
+    int buffer;
+    fread(&buffer, sizeof(int), 1, archivo);
+
+    ListaNumerosNaturales lista = crearListaDeNumerosNaturales();
+    while (buffer != -1) {
+        agregarNumeroAListaDeNumerosNaturales(lista, buffer);
+        fread(&buffer, sizeof(int), 1, archivo);
+    }
+
+    return lista;
+}

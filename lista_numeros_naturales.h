@@ -42,4 +42,10 @@ int sumarValoresDeListaDeNumerosNaturales(ListaNumerosNaturales lista);
 ListaNumerosNaturales unirDosListasDeNumerosNaturales(ListaNumerosNaturales listaA, ListaNumerosNaturales listaB);
 
 
+void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE *archivo);
+
+
+ListaNumerosNaturales leerListaDeNumerosNaturalesDeArchivo(FILE *archivo);
+
+
 #endif
