@@ -81,8 +81,17 @@ void save(ABBSecuencias &abb, string nombreSecuencia, string nombreArchivo, bool
         if (archivo != NULL) {
 
             escribirSecuenciaEnArchivo(secuencia, archivo);
+            mostrarString(nombreSecuencia);
+            printf(" almacenada correctamente en ");
+            mostrarString(nombreArchivo);
+            printf("\n");
 
             fclose(archivo);
         }
     }
+}
+
+
+void load(ABBSecuencias &abb, string nombreArchivo, string nombreSecuencia) {
+
 }

@@ -17,4 +17,6 @@ void concat(ABBSecuencias &abb, string nombreSecuenciaA, string nombreSecuenciaB
 
 void save(ABBSecuencias &abb, string nombreSecuencia, string nombreArchivo, boolean sobrescribirArchivo);
 
+void load(ABBSecuencias &abb, string nombreArchivo, string nombreSecuencia);
+
 #endif

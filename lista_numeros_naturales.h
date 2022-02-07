@@ -3,11 +3,6 @@
 
 #include "boolean.h"
 
-//struct NodoNumeroNaturalStruct {
-//    int valor;
-//    NodoNumeroNaturalStruct *nodoSiguiente;
-//};
-
 typedef struct NodoNumeroNaturalStruct {
     int valor;
     NodoNumeroNaturalStruct *nodoSiguiente;
