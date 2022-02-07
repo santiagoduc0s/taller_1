@@ -102,10 +102,10 @@ void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE 
 
 ListaNumerosNaturales leerListaDeNumerosNaturalesDeArchivo(FILE *archivo) {
 
-    int buffer;
-    fread(&buffer, sizeof(int), 1, archivo);
-
     ListaNumerosNaturales lista = crearListaDeNumerosNaturales();
+    int buffer = -1;
+
+    fread(&buffer, sizeof(int), 1, archivo);
     while (buffer != -1) {
         agregarNumeroAListaDeNumerosNaturales(lista, buffer);
         fread(&buffer, sizeof(int), 1, archivo);

@@ -1,9 +1,63 @@
 #include "comandos.h"
 #include "archivo.h"
 
+
 int main() {
 
-    FILE *archivo;
+    ABBSecuencias abb = crearArbolDeSecuencias(); // variable global
+
+    // create pepe
+    create(abb, string("pepe"));
+
+    // insback pepe 4
+    insback(abb, string("pepe"), 4);
+
+    // insback pepe 5
+    insback(abb, string("pepe"), 5);
+
+    // insback pepe 2
+    insback(abb, string("pepe"), 2);
+
+    // create lolo
+    create(abb, string("lolo"));
+
+    // insback lolo 3
+    insback(abb, string("lolo"), 3);
+
+    // insback lolo 5
+    insback(abb, string("lolo"), 5);
+
+    // concat pepe lolo momo
+    concat(abb, string("pepe"), string("lolo"), string("concatenacion"));
+
+    // reverse pepe invpepe
+    reverse(abb, string("pepe"), string("invpepe"));
+
+    // suma
+//    suma(abb, string("pepe"));
+
+    // save pepe secuencias.txt
+    save(abb, string("pepe"), string("secuencias.txt"), TRUE);
+    save(abb, string("invpepe"), string("secuencias.txt"), FALSE);
+
+
+    FILE *archivo = fopen("secuencias.txt", "rb");
+    Secuencia sec;
+    sec = leerSecuenciaDeArchivo(archivo);
+    while (!feof(archivo)) {
+        mostrarSecuencia(sec);
+        sec = leerSecuenciaDeArchivo(archivo);
+    }
+
+    // show
+//    show(abb);
+
+    return 0;
+
+
+
+
+//    FILE *archivo;
 
 
     // leer strings
@@ -50,24 +104,22 @@ int main() {
 
 
 
-    ListaNumerosNaturales lista = crearListaDeNumerosNaturales();
+//    ListaNumerosNaturales lista = crearListaDeNumerosNaturales();
+//    agregarNumeroAListaDeNumerosNaturales(lista, 1);
+//    agregarNumeroAListaDeNumerosNaturales(lista, 2);
 //    agregarNumeroAListaDeNumerosNaturales(lista, 5);
-//    agregarNumeroAListaDeNumerosNaturales(lista, 9);
-//    agregarNumeroAListaDeNumerosNaturales(lista, 12);
 //
 //    archivo = fopen("numeros.txt", "ab"); // escribir
 //    escribirListaDeNumerosNaturalesEnArchivo(lista, archivo);
 
-    archivo = fopen("numeros.txt", "rb");
+//    archivo = fopen("numeros.txt", "rb"); // leer
+//    lista = leerListaDeNumerosNaturalesDeArchivo(archivo);
+//    while (!feof(archivo)) {
+//        mostrarListaDeNumerosNaturales(lista);
+//        lista = leerListaDeNumerosNaturalesDeArchivo(archivo);
+//    }
 
-
-    lista = leerListaDeNumerosNaturalesDeArchivo(archivo);
-    while (!feof(archivo)) {
-        mostrarListaDeNumerosNaturales(lista);
-        lista = leerListaDeNumerosNaturalesDeArchivo(archivo);
-    }
-
-    fclose(archivo);
+//    fclose(archivo);
 
 //    archivo = fopen("numeros.txt", "rb"); // leer
 //    while (!feof(archivo)) {
@@ -78,7 +130,7 @@ int main() {
 //    archivo = fopen("secuencias.txt", "ab");
 //    if (archivo != nullptr) {
 //
-//        Secuencia sec = {string("santi"), lista};
+//        Secuencia sec = {string("rarosi"), lista};
 //
 //        escribirSecuenciaEnArchivo(sec, archivo);
 //
@@ -86,10 +138,11 @@ int main() {
 //    }
 //
 //    archivo = fopen("secuencias.txt", "rb");
-//    mostrarSecuencia(leerSecuenciaDeArchivo(archivo));
-//    mostrarSecuencia(leerSecuenciaDeArchivo(archivo));
+//    Secuencia sec;
+//    sec = leerSecuenciaDeArchivo(archivo);
 //    while (!feof(archivo)) {
-//        mostrarSecuencia(leerSecuenciaDeArchivo(archivo));
+//        mostrarSecuencia(sec);
+//        sec = leerSecuenciaDeArchivo(archivo);
 //    }
 
 
@@ -104,40 +157,7 @@ int main() {
 
     return 0;
 
-//    ABBSecuencias abb = crearArbolDeSecuencias(); // variable global
 //
-//    // create pepe
-//    create(abb, string("pepe"));
-//
-//    // insback pepe 4
-//    insback(abb, string("pepe"), 4);
-//
-//    // insback pepe 5
-//    insback(abb, string("pepe"), 5);
-//
-//    // insback pepe 2
-//    insback(abb, string("pepe"), 2);
-//
-//    // create lolo
-//    create(abb, string("lolo"));
-//
-//    // insback lolo 3
-//    insback(abb, string("lolo"), 3);
-//
-//    // insback lolo 5
-//    insback(abb, string("lolo"), 5);
-//
-//    // concat pepe lolo momo
-//    concat(abb, string("pepe"), string("lolo"), string("concatenacion"));
-//
-//    // reverse pepe invpepe
-//    reverse(abb, string("pepe"), string("invpepe"));
-//
-//    // suma
-//    suma(abb, string("pepe"));
-//
-//    // show
-//    show(abb);
 
     // ESTO es para testing de santi
 

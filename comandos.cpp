@@ -64,3 +64,25 @@ void concat(ABBSecuencias &abb, string nombreSecuenciaA, string nombreSecuenciaB
         agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
     }
 }
+
+
+void save(ABBSecuencias &abb, string nombreSecuencia, string nombreArchivo, boolean sobrescribirArchivo) {
+    if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
+        Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia);
+
+        string modoArchivo;
+        if (sobrescribirArchivo) {
+            modoArchivo = string("wb");
+        } else {
+            modoArchivo = string("ab");
+        }
+
+        FILE *archivo = fopen(nombreArchivo, modoArchivo);
+        if (archivo != NULL) {
+
+            escribirSecuenciaEnArchivo(secuencia, archivo);
+
+            fclose(archivo);
+        }
+    }
+}
