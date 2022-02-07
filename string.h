@@ -32,4 +32,10 @@ boolean compararStrings(string a, string b);
 boolean primerStringAlfabeticameteMenor(string a, string b);
 
 
+void escribirStringEnArchivo(string s, FILE *archivo);
+
+
+void leerStringDeArchivo(string &s, FILE *archivo);
+
+
 #endif

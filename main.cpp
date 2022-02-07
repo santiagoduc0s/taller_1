@@ -2,7 +2,7 @@
 
 int main() {
 
-    ABBSecuencias abb = crearArbolDeSecuencias(); // variable global
+    ABBSecuencias abb = crearArbolDeSecuencias();
 
     // create pepe
     create(abb, string("pepe"));
@@ -33,59 +33,24 @@ int main() {
 
     // suma
     suma(abb, string("pepe"));
-    
+
+    // save pepe secuencias.txt
+    save(abb, string("pepe"), string("secuencias.txt"), TRUE);
+
+    // save invpepe  secuencias.txt
+    save(abb, string("invpepe"), string("secuencias.txt"), FALSE);
+
     // show
     show(abb);
 
     return 0;
 
-
-    // ESTO es para testing de santi
-
-    ListaNumerosNaturales lista = crearListaDeNumerosNaturales();
-    ListaNumerosNaturales lista2 = crearListaDeNumerosNaturales();
-
-    agregarNumeroAListaDeNumerosNaturales(lista, 1);
-    agregarNumeroAListaDeNumerosNaturales(lista, 2);
-//    agregarNumeroAListaDeNumerosNaturales(lista, 3);
-//    agregarNumeroAListaDeNumerosNaturales(lista, 4);
-//    agregarNumeroAListaDeNumerosNaturales(lista, 5);
-//    agregarNumeroAListaDeNumerosNaturales(lista, 64);
-
-    agregarNumeroAListaDeNumerosNaturales(lista2, 3);
-    agregarNumeroAListaDeNumerosNaturales(lista2, 4);
-
-
-    Secuencia secuencia1 = {string("calo"), lista};
-    Secuencia secuencia2 = {string("anti"), lista};
-    Secuencia secuencia3 = {string("gjfdg"), lista};
-    Secuencia secuencia4 = {string("inasesati"), lista};
-    Secuencia secuencia5 = {string("santi"), lista};
-    Secuencia secuencia6 = {string("prt"), lista};
-    Secuencia secuencia7 = {string("bdrgsd"), lista};
-    Secuencia secuencia8 = {string("tgrtg"), lista};
-    Secuencia secuencia9 = {string("vntseergi"), lista};
-
-
-    agregarSecuenciaAlArbolDeSecuancias(abb, secuencia1);
-    agregarSecuenciaAlArbolDeSecuancias(abb, secuencia2);
-    agregarSecuenciaAlArbolDeSecuancias(abb, secuencia3);
-    agregarSecuenciaAlArbolDeSecuancias(abb, secuencia4);
-    agregarSecuenciaAlArbolDeSecuancias(abb, secuencia5);
-    agregarSecuenciaAlArbolDeSecuancias(abb, secuencia6);
-    agregarSecuenciaAlArbolDeSecuancias(abb, secuencia7);
-    agregarSecuenciaAlArbolDeSecuancias(abb, secuencia8);
-    agregarSecuenciaAlArbolDeSecuancias(abb, secuencia9);
-
-
-    Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, string("calo"));
-    secuencia.lista = NULL;
-
-
-//    listarArbolDeSecuencias(abb);
-
-
-
-
-
+    // IMPORTANTE para el comando load
+//    FILE *archivo = fopen("secuencias.txt", "rb");
+//    Secuencia sec;
+//    sec = leerSecuenciaDeArchivo(archivo);
+//    while (!feof(archivo)) {
+//        mostrarSecuencia(sec);
+//        sec = leerSecuenciaDeArchivo(archivo);
+//    }
 }

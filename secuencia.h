@@ -14,4 +14,8 @@ void mostrarSecuencia(Secuencia secuencia);
 
 void agregarNumeroASecuencia(Secuencia &secuencia, int numero);
 
+void escribirSecuenciaEnArchivo(Secuencia secuencia, FILE *archivo);
+
+Secuencia leerSecuenciaDeArchivo(FILE *archivo);
+
 #endif

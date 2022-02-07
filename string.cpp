@@ -80,7 +80,7 @@ boolean compararStrings(string a, string b)
 }
 
 
-void escribirString(string s, FILE *archivo) {
+void escribirStringEnArchivo(string s, FILE *archivo) {
     int i = 0;
     while (s[i] != '\0') {
         fwrite(&s[i], sizeof(char), 1, archivo);
@@ -90,7 +90,7 @@ void escribirString(string s, FILE *archivo) {
 }
 
 
-void leerString(string &s, FILE *archivo) {
+void leerStringDeArchivo(string &s, FILE *archivo) {
     string aux = new char[MAX_LENGTH_STRING];
 
     int i = 0;
