@@ -11,62 +11,62 @@ discreta trabajar con secuencias de números naturales
 
 ## Comandos
 
-###Create
+### Create
 Crea una nueva secuencia vacía.
 ```
 create pepe 
 // crea la secuencia pepe
 ```
 
-###Insback
+### Insback
 Agrega un nuevo valor al final de una secuencia.
 ```
 insback pepe 4 
 // agrega el numero 4 a la secuencia pepe
 ```
 
-###Show
+### Show
 Muestra por pantalla todas las secuencias existentes.
 ```
 show 
 ```
 
-###Sum
+### Sum
 Calcula la suma de los valores de una secuencia.
 ```
 sum pepe 
 // suma los valores de la secuencia pepe
 ```
 
-###Concat
+### Concat
 Crea una nueva secuencia que resulta de la concatenación de otras dos.
 ```
 concat pepe lalo miu  
 // se crea la secuencia miu como resultado de la concatenación de pepe y lalo
 ```
 
-###Reverse
+### Reverse
 Crea una nueva secuencia que resulta de invertir todos los valores de otra.
 ```
 reverse pepe revil 
 // se crea la secuencia revil como resultado de la inversion de la secuencia pepe 
 ```
 
-###Save
+### Save
 Guarda en archivo una secuencia existente.
 ```
 save pepe secuencia.txt 
 // guarda la secuencia pepe en el archivo secuencia.txt 
 ```
 
-###Load
+### Load
 Recupera a memoria una secuencia previamente guardada en archivo.
 ```
 load mou secuencia.txt 
 // se crea la secuencia mou en base a la secuencia guardada en el archivo
 ```
 
-###Exit
+### Exit
 Libera toda la memoria dinámica utilizada y finaliza la ejecución de la aplicación,  
 ```
 exit 
