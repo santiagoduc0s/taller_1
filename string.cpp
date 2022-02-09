@@ -7,7 +7,7 @@ string crearString() {
 }
 
 
-void eliminarString(string &str) {
+void liberarString(string &str) {
     delete[] str;
     str = NULL;
 }
@@ -101,7 +101,7 @@ void leerStringDeArchivo(string &s, FILE *archivo) {
         fread(&aux[i], sizeof(char), 1, archivo);
     }
     copiarString(aux, s);
-    eliminarString(aux);
+    liberarString(aux);
 }
 
 

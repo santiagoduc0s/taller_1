@@ -8,12 +8,14 @@ typedef struct NodoNumeroNaturalStruct {
     NodoNumeroNaturalStruct *nodoSiguiente;
 } NodoNumeroNatural;
 
-typedef NodoNumeroNatural * ListaNumerosNaturales;
+typedef NodoNumeroNatural *ListaNumerosNaturales;
 
 // -----------------------------------------
 
-
 ListaNumerosNaturales crearListaDeNumerosNaturales();
+
+
+void liberarListaDeNumerosNaturales(ListaNumerosNaturales &lista);
 
 
 boolean listaDeNumerosNaturalesEsVacia(ListaNumerosNaturales lista);

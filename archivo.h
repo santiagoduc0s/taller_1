@@ -5,8 +5,4 @@
 
 boolean existeArchivo(string nombreArchivo);
 
-boolean archivoVacio(string nombreArchivo);
-
-long tamanioDelArchivo(string nombreArchivo);
-
 #endif

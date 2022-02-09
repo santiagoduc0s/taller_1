@@ -35,22 +35,16 @@ int main() {
     suma(abb, string("pepe"));
 
     // save pepe secuencias.txt
-    save(abb, string("pepe"), string("secuencias.txt"), TRUE);
+    save(abb, string("pepe"), string("secuencias.txt"));
 
-    // save invpepe  secuencias.txt
-    save(abb, string("invpepe"), string("secuencias.txt"), FALSE);
+    // load oli secuencias.txt
+    load(abb, string("secuencias.txt"), string("oli"));
 
     // show
     show(abb);
 
-    return 0;
+    // exit
+    exit(abb);
 
-    // IMPORTANTE para el comando load
-//    FILE *archivo = fopen("secuencias.txt", "rb");
-//    Secuencia sec;
-//    sec = leerSecuenciaDeArchivo(archivo);
-//    while (!feof(archivo)) {
-//        mostrarSecuencia(sec);
-//        sec = leerSecuenciaDeArchivo(archivo);
-//    }
+    return 0;
 }
