@@ -13,9 +13,13 @@ typedef NodoABBSecuenciaStruct NodoABBSecuencia;
 
 typedef NodoABBSecuencia *ABBSecuencias;
 
+// ------------------------------------
+
 ABBSecuencias crearArbolDeSecuencias();
 
-// -------------------------------------
+
+void liberarArbolDeSecuencias(ABBSecuencias &abb);
+
 
 void listarArbolDeSecuencias(ABBSecuencias abb);
 

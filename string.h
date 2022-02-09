@@ -11,7 +11,7 @@ typedef char *string;
 string crearString();
 
 
-void eliminarString(string &str);
+void liberarString(string &str);
 
 
 int largoString(string str);

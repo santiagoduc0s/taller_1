@@ -1,12 +1,23 @@
 #include "lista_numeros_naturales.h"
 
+
 ListaNumerosNaturales crearListaDeNumerosNaturales() {
     return NULL;
 }
 
+
+void liberarListaDeNumerosNaturales(ListaNumerosNaturales &lista) {
+    if (lista != NULL) {
+        liberarListaDeNumerosNaturales(lista->nodoSiguiente);
+        delete lista;
+    }
+}
+
+
 boolean listaDeNumerosNaturalesEsVacia(ListaNumerosNaturales lista) {
     return boolean(lista == NULL);
 }
+
 
 void agregarNumeroAListaDeNumerosNaturales(ListaNumerosNaturales &lista, int num) {
     ListaNumerosNaturales nodo = new NodoNumeroNatural;
@@ -25,6 +36,7 @@ void agregarNumeroAListaDeNumerosNaturales(ListaNumerosNaturales &lista, int num
     }
 }
 
+
 void mostrarListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     printf("[ ");
     while (lista != NULL) {
@@ -38,6 +50,7 @@ void mostrarListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     printf("]");
 }
 
+
 int tamanioDeListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     int i = 0;
     while (lista != NULL) {
@@ -46,6 +59,7 @@ int tamanioDeListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     }
     return i;
 }
+
 
 ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     int *numeros = new int[tamanioDeListaDeNumerosNaturales(lista)];
@@ -64,6 +78,7 @@ ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales list
     return nuevaLista;
 }
 
+
 int sumarValoresDeListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     int suma = 0;
     while (lista != NULL) {
@@ -72,6 +87,7 @@ int sumarValoresDeListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     }
     return suma;
 }
+
 
 ListaNumerosNaturales unirDosListasDeNumerosNaturales(ListaNumerosNaturales listaA, ListaNumerosNaturales listaB) {
 
@@ -90,6 +106,7 @@ ListaNumerosNaturales unirDosListasDeNumerosNaturales(ListaNumerosNaturales list
     return nuevaLista;
 }
 
+
 void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE *archivo) {
 
     while (lista != NULL) {
@@ -99,6 +116,7 @@ void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE 
     int endList = -1;
     fwrite(&endList, sizeof(int), 1, archivo);
 }
+
 
 ListaNumerosNaturales leerListaDeNumerosNaturalesDeArchivo(FILE *archivo) {
 
