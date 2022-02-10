@@ -7,35 +7,28 @@ const int MAX_LENGTH_STRING = 80;
 
 typedef char *string;
 
+// ----------------------------------
 
-string crearString();
-
-
-void liberarString(string &str);
-
-
-int largoString(string str);
-
-
-void copiarString(string from, string &to);
-
+string crearString(); // string str = new char[1]; str[0] = '\0'; return str;
 
 void cargarString(string &str);
 
+void liberarString(string &str);
+
+int largoString(string str);
+
+void copiarString(string strA, string &strB);
 
 void mostrarString(string str);
 
-
 boolean compararStrings(string a, string b);
-
 
 boolean primerStringAlfabeticameteMenor(string a, string b);
 
+boolean stringContieneSoloLetras(string s);
 
-void escribirStringEnArchivo(string s, FILE *archivo);
+boolean stringContieneSoloNumeros(string s);
 
-
-void leerStringDeArchivo(string &s, FILE *archivo);
-
+int convertirStringANumero(string s);
 
 #endif

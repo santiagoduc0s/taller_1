@@ -12,7 +12,7 @@ typedef NodoNumeroNatural *ListaNumerosNaturales;
 
 // -----------------------------------------
 
-ListaNumerosNaturales crearListaDeNumerosNaturales();
+ListaNumerosNaturales crearListaDeNumerosNaturales(); // return NULL
 
 
 void liberarListaDeNumerosNaturales(ListaNumerosNaturales &lista);
