@@ -1,4 +1,5 @@
 #include "comandos.h"
+#include "lista_strings.h"
 
 int main() {
 
