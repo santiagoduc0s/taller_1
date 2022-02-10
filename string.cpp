@@ -21,16 +21,16 @@ int largoString(string str) {
 }
 
 
-void copiarString(string from, string &to) {
-    int length = largoString(from);
-    delete[] to;
-    to = new char[length + 1];
+void copiarString(string strA, string &strB) {
+    int length = largoString(strA);
+    delete[] strB;
+    strB = new char[length + 1];
     int i = 0;
-    while (from[i] != '\0') {
-        to[i] = from[i];
+    while (strA[i] != '\0') {
+        strB[i] = strA[i];
         i++;
     }
-    to[i] = '\0';
+    strB[i] = '\0';
 }
 
 

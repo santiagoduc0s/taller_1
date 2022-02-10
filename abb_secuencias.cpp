@@ -8,8 +8,7 @@ ABBSecuencias crearArbolDeSecuencias() {
 void liberarArbolDeSecuencias(ABBSecuencias &abb) {
 
     if (abb->hizq == NULL && abb->hder == NULL) {
-        liberarListaDeNumerosNaturales(abb->secuencia.lista);
-        // liberarString(abb->secuencia.nombre); -> funciona si el string es cargado mediante la función "cargarString"
+        liberarSecuencia(abb->secuencia);
     } else {
         if (abb->hizq != NULL) {
             liberarArbolDeSecuencias(abb->hizq);

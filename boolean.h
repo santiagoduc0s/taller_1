@@ -7,5 +7,8 @@ typedef enum {
     FALSE, TRUE
 } boolean;
 
+// -------------------------
+
+void cargarBoolean(boolean &b);
 
 #endif

@@ -4,9 +4,7 @@
 void create(ABBSecuencias &abb, string nombreSecuencia) {
 
     if (!existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
-        Secuencia secuencia;
-        secuencia.nombre = nombreSecuencia;
-        secuencia.lista = NULL;
+        Secuencia secuencia = crearSecuencia(nombreSecuencia, NULL);
         agregarSecuenciaAlArbolDeSecuancias(abb, secuencia);
     } else {
         printf("Ya existe una secuencia con ese nombre cargada en memoria\n");
@@ -16,7 +14,7 @@ void create(ABBSecuencias &abb, string nombreSecuencia) {
 
 void insback(ABBSecuencias &abb, string nombreSecuencia, int numero) {
 
-    if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) { // valido que exista
+    if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
         agregarNumeroASecuenciaDelArbolDeSecuencias(abb, nombreSecuencia, numero);
     } else {
         printf("No existe una secuencia con ese nombre cargada en memoria\n");
@@ -29,12 +27,8 @@ void reverse(ABBSecuencias &abb, string nombreSecuencia, string nombreNuevaSecue
     if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
         if (existeSecuenciaEnArbolDeSecuencias(abb, nombreNuevaSecuencia)) {
 
-            Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia);
-
-            Secuencia nuevaSecuencia;
-            nuevaSecuencia.lista = invertirListaDeNumerosNaturales(secuencia.lista);
-            nuevaSecuencia.nombre = nombreNuevaSecuencia;
-
+            Secuencia secuenciaBuscada = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia);
+            Secuencia nuevaSecuencia = crearSecuencia(nombreNuevaSecuencia, invertirListaDeNumerosNaturales(secuenciaBuscada.lista));
             agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
         } else {
             printf("Ya existe una secuencia con ese nombre cargada en memoria\n");
@@ -73,10 +67,7 @@ void concat(ABBSecuencias &abb, string nombreSecuenciaA, string nombreSecuenciaB
                 Secuencia secuenciaA = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuenciaA);
                 Secuencia secuenciaB = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuenciaB);
 
-                Secuencia nuevaSecuencia;
-                nuevaSecuencia.lista = unirDosListasDeNumerosNaturales(secuenciaA.lista, secuenciaB.lista);
-                nuevaSecuencia.nombre = nombreNuevaSecuencia;
-
+                Secuencia nuevaSecuencia = crearSecuencia(nombreNuevaSecuencia, unirDosListasDeNumerosNaturales(secuenciaA.lista, secuenciaB.lista));
                 agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
             } else {
                 printf("Ya existe una secuencia con ese nombre cargada en memoria\n");
@@ -125,11 +116,10 @@ void load(ABBSecuencias &abb, string nombreArchivo, string nombreSecuencia) {
 
     if (!existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
         if (existeArchivo(nombreArchivo)) {
-            Secuencia secuencia;
-            secuencia.nombre = nombreSecuencia;
+
             FILE *archivo = fopen(nombreArchivo, "rb");
-            secuencia.lista = leerListaDeNumerosNaturalesDeArchivo(archivo);
-            agregarSecuenciaAlArbolDeSecuancias(abb, secuencia);
+            Secuencia nuevaSecuencia = crearSecuencia(nombreSecuencia, leerListaDeNumerosNaturalesDeArchivo(archivo));
+            agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
         } else {
             printf("No existe un archivo con ese nombre\n");
         }
