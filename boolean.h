@@ -11,4 +11,6 @@ typedef enum {
 
 void cargarBoolean(boolean &b);
 
+void mostrarBoolean(boolean b);
+
 #endif

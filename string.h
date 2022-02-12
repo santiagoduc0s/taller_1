@@ -9,7 +9,7 @@ typedef char *string;
 
 // ----------------------------------
 
-string crearString(); // string str = new char[1]; str[0] = '\0'; return str;
+string crearString();
 
 void cargarString(string &str);
 
@@ -25,10 +25,12 @@ boolean compararStrings(string a, string b);
 
 boolean primerStringAlfabeticameteMenor(string a, string b);
 
-boolean stringContieneSoloLetras(string s);
+boolean stringContieneSoloLetras(string str);
 
-boolean stringContieneSoloNumeros(string s);
+boolean stringContieneSoloNumeros(string str);
 
-int convertirStringANumero(string s);
+boolean stringTerminaEnPuntoTxt(string str);
+
+int convertirStringANumero(string str);
 
 #endif

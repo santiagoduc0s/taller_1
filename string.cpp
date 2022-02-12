@@ -80,33 +80,41 @@ boolean compararStrings(string a, string b)
 }
 
 
-void escribirStringEnArchivo(string s, FILE *archivo) {
-    int i = 0;
-    while (s[i] != '\0') {
-        fwrite(&s[i], sizeof(char), 1, archivo);
-        i++;
-    }
-    fwrite(&s[i], sizeof(char), 1, archivo);
-}
-
-
-void leerStringDeArchivo(string &s, FILE *archivo) {
-    string aux = new char[MAX_LENGTH_STRING];
-
-    int i = 0;
-
-    fread(&aux[i], sizeof(char), 1, archivo);
-    while (aux[i] != '\0') {
-        i++;
-        fread(&aux[i], sizeof(char), 1, archivo);
-    }
-    copiarString(aux, s);
-    liberarString(aux);
-}
-
-
 // todo: implementar correctamente
 boolean primerStringAlfabeticameteMenor(string a, string b) {
     return boolean(a[0] < b[0]);
+}
+
+
+// todo: falta implementar
+boolean stringContieneSoloLetras(string str) {
+    return FALSE;
+}
+
+
+// todo: falta implementar
+boolean stringContieneSoloNumeros(string str) {
+    return FALSE;
+}
+
+
+// todo: falta implementar
+boolean stringTerminaEnPuntoTxt(string str) {
+    return FALSE;
+}
+
+
+int convertirStringANumero(string str) {
+    int multiplicoPor = 1;
+    int suma = 0;
+    int numero;
+    int i = largoString(str) - 1;
+    while (i >= 0) {
+        numero = int(str[i]) - 48;
+        suma = suma + (multiplicoPor * numero);
+        multiplicoPor = multiplicoPor * 10;
+        i--;
+    }
+    return suma;
 }
 
