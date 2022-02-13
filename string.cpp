@@ -82,7 +82,27 @@ boolean compararStrings(string a, string b)
 
 // todo: implementar correctamente
 boolean primerStringAlfabeticameteMenor(string a, string b) {
-    return boolean(a[0] < b[0]);
+
+    int largoStringA = largoString(a);
+    int largoStringB = largoString(b);
+    int largoMenorString;
+
+    if (largoStringA < largoStringB) {
+        largoMenorString = largoStringA;
+    } else {
+        largoMenorString = largoStringB;
+    }
+
+    boolean esAlfabeticameteMenor = TRUE;
+    for (int i = 0; i < largoMenorString; ++i) {
+        if (b[i] < a[i]) {
+            esAlfabeticameteMenor = FALSE;
+        } else if (b[i] > a[i]) {
+            break;
+        }
+    }
+
+    return esAlfabeticameteMenor;
 }
 
 
