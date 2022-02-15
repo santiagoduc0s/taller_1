@@ -13,21 +13,19 @@ typedef NodoABBSecuenciaStruct NodoABBSecuencia;
 
 typedef NodoABBSecuencia *ABBSecuencias;
 
-ABBSecuencias crearArbolDeSecuencias();
+// ------------------------------------
 
-// -------------------------------------
+ABBSecuencias crearArbolDeSecuencias(); // return NULL
+
+void liberarArbolDeSecuencias(ABBSecuencias &abb);
 
 void listarArbolDeSecuencias(ABBSecuencias abb);
 
-
 void agregarSecuenciaAlArbolDeSecuancias(ABBSecuencias &abb, Secuencia secuencia);
-
 
 boolean existeSecuenciaEnArbolDeSecuencias(ABBSecuencias abb, string nombre);
 
-
 Secuencia buscarSecuenciaEnArbolDeSecuencias(ABBSecuencias abb, string nombre);
-
 
 void agregarNumeroASecuenciaDelArbolDeSecuencias(ABBSecuencias abb, string nombre, int numero);
 

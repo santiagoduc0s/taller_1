@@ -52,6 +52,9 @@
 		<Unit filename="comandos.cpp" />
 		<Unit filename="comandos.h" />
 
+		<Unit filename="lista_strings.cpp" />
+		<Unit filename="lista_strings.h" />
+
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

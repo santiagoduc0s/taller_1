@@ -7,7 +7,7 @@ string crearString() {
 }
 
 
-void eliminarString(string &str) {
+void liberarString(string &str) {
     delete[] str;
     str = NULL;
 }
@@ -21,16 +21,16 @@ int largoString(string str) {
 }
 
 
-void copiarString(string from, string &to) {
-    int length = largoString(from);
-    delete[] to;
-    to = new char[length + 1];
+void copiarString(string strA, string &strB) {
+    int length = largoString(strA);
+    delete[] strB;
+    strB = new char[length + 1];
     int i = 0;
-    while (from[i] != '\0') {
-        to[i] = from[i];
+    while (strA[i] != '\0') {
+        strB[i] = strA[i];
         i++;
     }
-    to[i] = '\0';
+    strB[i] = '\0';
 }
 
 
@@ -80,26 +80,61 @@ boolean compararStrings(string a, string b)
 }
 
 
-void escribirString(string s, FILE *archivo) {
-    int i = 0;
-    while (s[i] != '\0') {
-        fwrite(&s[i], sizeof(char), 1, archivo);
-        i++;
+// todo: implementar correctamente
+boolean primerStringAlfabeticameteMenor(string a, string b) {
+
+    int largoStringA = largoString(a);
+    int largoStringB = largoString(b);
+    int largoMenorString;
+
+    if (largoStringA < largoStringB) {
+        largoMenorString = largoStringA;
+    } else {
+        largoMenorString = largoStringB;
     }
-    fwrite(&s[i], sizeof(char), 1, archivo);
+
+    boolean esAlfabeticameteMenor = TRUE;
+    for (int i = 0; i < largoMenorString; ++i) {
+        if (b[i] < a[i]) {
+            esAlfabeticameteMenor = FALSE;
+        } else if (b[i] > a[i]) {
+            break;
+        }
+    }
+
+    return esAlfabeticameteMenor;
 }
 
 
-void leerString(string &s, FILE *archivo) {
-    string aux = new char[MAX_LENGTH_STRING];
-
-    int i = 0;
-
-    fread(&aux[i], sizeof(char), 1, archivo);
-    while (aux[i] != '\0') {
-        i++;
-        fread(&aux[i], sizeof(char), 1, archivo);
-    }
-    copiarString(aux, s);
-    eliminarString(aux);
+// todo: falta implementar
+boolean stringContieneSoloLetras(string str) {
+    return FALSE;
 }
+
+
+// todo: falta implementar
+boolean stringContieneSoloNumeros(string str) {
+    return FALSE;
+}
+
+
+// todo: falta implementar
+boolean stringTerminaEnPuntoTxt(string str) {
+    return FALSE;
+}
+
+
+int convertirStringANumero(string str) {
+    int multiplicoPor = 1;
+    int suma = 0;
+    int numero;
+    int i = largoString(str) - 1;
+    while (i >= 0) {
+        numero = int(str[i]) - 48;
+        suma = suma + (multiplicoPor * numero);
+        multiplicoPor = multiplicoPor * 10;
+        i--;
+    }
+    return suma;
+}
+

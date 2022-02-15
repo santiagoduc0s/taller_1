@@ -9,6 +9,13 @@ typedef struct {
     ListaNumerosNaturales lista;
 } Secuencia;
 
+string darNombre(Secuencia secuencia);
+
+ListaNumerosNaturales darLista(Secuencia secuencia);
+
+Secuencia crearSecuencia(string nombre, ListaNumerosNaturales lista);
+
+void liberarSecuencia(Secuencia &secuencia);
 
 void mostrarSecuencia(Secuencia secuencia);
 

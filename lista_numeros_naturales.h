@@ -3,22 +3,19 @@
 
 #include "boolean.h"
 
-//struct NodoNumeroNaturalStruct {
-//    int valor;
-//    NodoNumeroNaturalStruct *nodoSiguiente;
-//};
-
 typedef struct NodoNumeroNaturalStruct {
     int valor;
     NodoNumeroNaturalStruct *nodoSiguiente;
 } NodoNumeroNatural;
 
-typedef NodoNumeroNatural * ListaNumerosNaturales;
+typedef NodoNumeroNatural *ListaNumerosNaturales;
 
 // -----------------------------------------
 
+ListaNumerosNaturales crearListaDeNumerosNaturales(); // return NULL
 
-ListaNumerosNaturales crearListaDeNumerosNaturales();
+
+void liberarListaDeNumerosNaturales(ListaNumerosNaturales &lista);
 
 
 boolean listaDeNumerosNaturalesEsVacia(ListaNumerosNaturales lista);
@@ -34,6 +31,18 @@ int tamanioDeListaDeNumerosNaturales(ListaNumerosNaturales lista);
 
 
 ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales lista);
+
+
+int sumarValoresDeListaDeNumerosNaturales(ListaNumerosNaturales lista);
+
+
+ListaNumerosNaturales unirDosListasDeNumerosNaturales(ListaNumerosNaturales listaA, ListaNumerosNaturales listaB);
+
+
+void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE *archivo);
+
+
+ListaNumerosNaturales leerListaDeNumerosNaturalesDeArchivo(FILE *archivo);
 
 
 #endif
