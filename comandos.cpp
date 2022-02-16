@@ -113,7 +113,7 @@ void save(ABBSecuencias &abb, string nombreSecuencia, string nombreArchivo) {
 
 
 void load(ABBSecuencias &abb, string nombreArchivo, string nombreSecuencia) {
-
+/*
     if (!existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
         if (existeArchivo(nombreArchivo)) {
 
@@ -126,6 +126,7 @@ void load(ABBSecuencias &abb, string nombreArchivo, string nombreSecuencia) {
     } else {
         printf("Ya existe una secuencia con ese nombre cargada en memoria\n");
     }
+    */
 }
 
 

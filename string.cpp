@@ -106,24 +106,6 @@ boolean primerStringAlfabeticameteMenor(string a, string b) {
 }
 
 
-// todo: falta implementar
-boolean stringContieneSoloLetras(string str) {
-    return FALSE;
-}
-
-
-// todo: falta implementar
-boolean stringContieneSoloNumeros(string str) {
-    return FALSE;
-}
-
-
-// todo: falta implementar
-boolean stringTerminaEnPuntoTxt(string str) {
-    return FALSE;
-}
-
-
 int convertirStringANumero(string str) {
     int multiplicoPor = 1;
     int suma = 0;
@@ -136,5 +118,73 @@ int convertirStringANumero(string str) {
         i--;
     }
     return suma;
+}
+
+boolean stringTerminaEnPuntoTxt(string str)
+{
+    int i = 0;
+    boolean termina = FALSE;
+
+    while (str[i] != '\0' && !termina)
+    {
+        if (str[i] == '.')
+        {
+            i++;
+            if (str[i] == 't')
+            {
+                i++;
+                if (str[i] == 'x')
+                {
+                    i++;
+                    if (str[i] == 't')
+                    {
+                        i++;
+                        if (str[i] == '\0')
+                        {
+                            termina = TRUE;
+                        }
+
+                    }
+                }
+
+            }
+        }
+        i++;
+
+    }
+
+    return termina;
+
+
+
+}
+
+boolean stringContieneSoloNumeros(string s)
+{
+    boolean contieneSoloNumeros = TRUE;
+    int i = 0;
+    while ((s[i] != '\0') && contieneSoloNumeros)
+    {
+        if (s[i] >= 48 && s[i] <= 57)
+            i++;
+        else
+            contieneSoloNumeros = FALSE;
+    }
+    return contieneSoloNumeros;
+}
+
+boolean stringContieneSoloLetras(string s)
+{
+    boolean contieneSoloLetras = TRUE;
+    int i = 0;
+    while ((s[i] != '\0') && contieneSoloLetras)
+    {
+        if ((s[i] >= 65 && s[i] <= 90) || (s[i] >= 97 && s[i] <= 122))
+            i++;
+        else
+            contieneSoloLetras = FALSE;
+
+    }
+    return contieneSoloLetras;
 }
 
