@@ -188,33 +188,5 @@ boolean stringContieneSoloLetras(string s)
     return contieneSoloLetras;
 }
 
-boolean stringContieneSoloLetras(string s)
-{
-    boolean contieneSoloLetras = TRUE;
-    int i = 0;
-    while ((s[i] != '\0') && contieneSoloLetras)
-    {
-        if ((s[i] >= 65 && s[i] <= 90) && (s[i] >= 97 && s[i] <= 122))
-            i++;
-        else
-            contieneSoloLetras = FALSE;
 
-    }
-    return contieneSoloLetras;
-}
-
-
-boolean stringContieneSoloNumeros(string s)
-{
-    boolean contieneSoloNumeros = TRUE;
-    int i = 0;
-    while ((s[i] != '\0') && contieneSoloNumeros)
-    {
-        if (s[i] >= 48 && s[i] <= 57)
-            i++;
-        else
-            contieneSoloNumeros = FALSE;
-    }
-    return contieneSoloNumeros;
-}
 
