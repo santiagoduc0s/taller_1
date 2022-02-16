@@ -28,7 +28,7 @@ void agregarSecuenciaAlArbolDeSecuancias(ABBSecuencias &abb, Secuencia secuencia
         abb->hizq = NULL;
         abb->hder = NULL;
     } else {
-        if (primerStringAlfabeticameteMenor(secuencia.nombre, abb->secuencia.nombre)) { // todo: crear funcion que compare strings alfabeticamente
+        if (primerStringAlfabeticameteMenor(secuencia.nombre, abb->secuencia.nombre)) {
             agregarSecuenciaAlArbolDeSecuancias(abb->hizq, secuencia);
         } else {
             agregarSecuenciaAlArbolDeSecuancias(abb->hder, secuencia);

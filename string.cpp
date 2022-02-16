@@ -80,34 +80,112 @@ boolean compararStrings(string a, string b)
 }
 
 
-void escribirStringEnArchivo(string s, FILE *archivo) {
-    int i = 0;
-    while (s[i] != '\0') {
-        fwrite(&s[i], sizeof(char), 1, archivo);
-        i++;
-    }
-    fwrite(&s[i], sizeof(char), 1, archivo);
-}
-
-
-void leerStringDeArchivo(string &s, FILE *archivo) {
-    string aux = new char[MAX_LENGTH_STRING];
-
-    int i = 0;
-
-    fread(&aux[i], sizeof(char), 1, archivo);
-    while (aux[i] != '\0') {
-        i++;
-        fread(&aux[i], sizeof(char), 1, archivo);
-    }
-    copiarString(aux, s);
-    liberarString(aux);
-}
-
-
-// todo: implementar correctamente
 boolean primerStringAlfabeticameteMenor(string a, string b) {
-    return boolean(a[0] < b[0]);
+
+    int largoStringA = largoString(a);
+    int largoStringB = largoString(b);
+    int largoMenorString;
+
+    if (largoStringA < largoStringB) {
+        largoMenorString = largoStringA;
+    } else {
+        largoMenorString = largoStringB;
+    }
+
+    boolean esAlfabeticameteMenor = TRUE;
+    for (int i = 0; i < largoMenorString; ++i) {
+        if (b[i] < a[i]) {
+            esAlfabeticameteMenor = FALSE;
+        } else if (b[i] > a[i]) {
+            break;
+        }
+    }
+
+    return esAlfabeticameteMenor;
+}
+
+
+int convertirStringANumero(string str) {
+    int multiplicoPor = 1;
+    int suma = 0;
+    int numero;
+    int i = largoString(str) - 1;
+    // todo: hacer un
+    while (i >= 0) {
+        numero = int(str[i]) - 48;
+        suma = suma + (multiplicoPor * numero);
+        multiplicoPor = multiplicoPor * 10;
+        i--;
+    }
+    return suma;
+}
+
+boolean stringTerminaEnPuntoTxt(string str)
+{
+    int i = 0;
+    boolean termina = FALSE;
+
+    while (str[i] != '\0' && !termina)
+    {
+        if (str[i] == '.')
+        {
+            i++;
+            if (str[i] == 't')
+            {
+                i++;
+                if (str[i] == 'x')
+                {
+                    i++;
+                    if (str[i] == 't')
+                    {
+                        i++;
+                        if (str[i] == '\0')
+                        {
+                            termina = TRUE;
+                        }
+
+                    }
+                }
+
+            }
+        }
+        i++;
+
+    }
+
+    return termina;
+
+
+
+}
+
+boolean stringContieneSoloNumeros(string s)
+{
+    boolean contieneSoloNumeros = TRUE;
+    int i = 0;
+    while ((s[i] != '\0') && contieneSoloNumeros)
+    {
+        if (s[i] >= 48 && s[i] <= 57)
+            i++;
+        else
+            contieneSoloNumeros = FALSE;
+    }
+    return contieneSoloNumeros;
+}
+
+boolean stringContieneSoloLetras(string s)
+{
+    boolean contieneSoloLetras = TRUE;
+    int i = 0;
+    while ((s[i] != '\0') && contieneSoloLetras)
+    {
+        if ((s[i] >= 65 && s[i] <= 90) || (s[i] >= 97 && s[i] <= 122))
+            i++;
+        else
+            contieneSoloLetras = FALSE;
+
+    }
+    return contieneSoloLetras;
 }
 
 boolean stringContieneSoloLetras(string s)

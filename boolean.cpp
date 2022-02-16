@@ -18,3 +18,10 @@ void cargarBoolean(boolean &b) {
         }
     } while (opcionValida == FALSE);
 }
+
+void mostrarBoolean(boolean b) {
+     if (b)
+        printf ("verdadero");
+     else
+        printf ("falso");
+}

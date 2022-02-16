@@ -1,4 +1,4 @@
-#include "lista_numeros_naturales.h"
+#include "lista_numeros_naturales_test.h"
 
 
 ListaNumerosNaturales crearListaDeNumerosNaturales() {
@@ -20,20 +20,28 @@ boolean listaDeNumerosNaturalesEsVacia(ListaNumerosNaturales lista) {
 
 
 void agregarNumeroAListaDeNumerosNaturales(ListaNumerosNaturales &lista, int num) {
-    ListaNumerosNaturales nodo = new NodoNumeroNatural;
-    if (listaDeNumerosNaturalesEsVacia(lista)) {
-        nodo->valor = num;
-        nodo->nodoSiguiente = NULL;
-        lista = nodo;
-    } else {
-        ListaNumerosNaturales listaAux = lista;
-        while (listaAux->nodoSiguiente != NULL) {
-            listaAux = listaAux->nodoSiguiente;
+    if (num >= 0)
+    {
+        ListaNumerosNaturales nodo = new NodoNumeroNatural;
+        if (listaDeNumerosNaturalesEsVacia(lista)) {
+            nodo->valor = num;
+            nodo->nodoSiguiente = NULL;
+            lista = nodo;
+        } else {
+            ListaNumerosNaturales listaAux = lista;
+            while (listaAux->nodoSiguiente != NULL) {
+                listaAux = listaAux->nodoSiguiente;
+            }
+            nodo->valor = num;
+            nodo->nodoSiguiente = NULL;
+            listaAux->nodoSiguiente = nodo;
         }
-        nodo->valor = num;
-        nodo->nodoSiguiente = NULL;
-        listaAux->nodoSiguiente = nodo;
     }
+    else
+    {
+        printf("El numero a ingresar debe ser mayor o igual a 0");
+    }
+
 }
 
 
