@@ -55,6 +55,9 @@
 		<Unit filename="lista_strings.cpp" />
 		<Unit filename="lista_strings.h" />
 
+		<Unit filename="./test/lista_numeros_naturales_test.cpp" />
+        <Unit filename="./test/lista_numeros_naturales_test.h" />
+
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
