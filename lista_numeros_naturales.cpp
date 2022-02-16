@@ -1,4 +1,4 @@
-#include "lista_numeros_naturales.h"
+#include "lista_numeros_naturales_test.h"
 
 
 ListaNumerosNaturales crearListaDeNumerosNaturales() {

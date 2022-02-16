@@ -2,7 +2,7 @@
 #define TALLER_1_SECUENCIA_H
 
 #include "string.h"
-#include "lista_numeros_naturales.h"
+#include "lista_numeros_naturales_test.h"
 
 typedef struct {
     string nombre;

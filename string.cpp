@@ -80,7 +80,6 @@ boolean compararStrings(string a, string b)
 }
 
 
-// todo: implementar correctamente
 boolean primerStringAlfabeticameteMenor(string a, string b) {
 
     int largoStringA = largoString(a);
@@ -111,6 +110,7 @@ int convertirStringANumero(string str) {
     int suma = 0;
     int numero;
     int i = largoString(str) - 1;
+    // todo: hacer un
     while (i >= 0) {
         numero = int(str[i]) - 48;
         suma = suma + (multiplicoPor * numero);
