@@ -19,7 +19,9 @@ void cargarBoolean(boolean &b) {
     } while (opcionValida == FALSE);
 }
 
-// todo: implementar
 void mostrarBoolean(boolean b) {
-
+     if (b)
+        printf ("verdadero");
+     else
+        printf ("falso");
 }
