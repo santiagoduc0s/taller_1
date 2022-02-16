@@ -57,7 +57,8 @@ void listaNumerosNaturalesTest() {
     printf("\n\n");
 
 
-
+    printf("- Se valida que los numeros de la lista sumen 15\n");
+    printf("- La suma de la lista es %i\n", sumarValoresDeListaDeNumerosNaturales(lista));
 
 
 
