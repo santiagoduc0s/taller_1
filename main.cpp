@@ -3,7 +3,6 @@
 
 int main() {
 
-    printf("hola");
     ABBSecuencias abb = crearArbolDeSecuencias();
 
     // create pepe
