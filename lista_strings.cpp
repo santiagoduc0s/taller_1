@@ -111,7 +111,23 @@ int tamanioDeListaDeStrings(ListaStrings lista) {
 }
 
 string darStringEnLaPosicion(ListaStrings lista, int posicion) {
-    string str = new char [1];
-    str[0] = '\n';
+    string str = crearString();
+
+    if (posicion >= 1 && posicion <= tamanioDeListaDeStrings(lista) ) {
+        int i = 1;
+        boolean estoyPosicionado = FALSE;
+
+        while (lista != NULL && !estoyPosicionado) {
+            if (i == posicion) {
+                str = lista->texto;
+                estoyPosicionado = TRUE;
+            } else {
+                lista = lista->nodoSiguiente;
+                i++;
+            }
+        }
+    } else {
+        printf("La posicion ingresada esta fuera de rango\n");
+    }
     return str;
 }
