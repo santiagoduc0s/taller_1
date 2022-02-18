@@ -1,4 +1,4 @@
-#include "lista_numeros_naturales_test.h"
+#include "lista_numeros_naturales.h"
 
 
 ListaNumerosNaturales crearListaDeNumerosNaturales() {
@@ -39,7 +39,7 @@ void agregarNumeroAListaDeNumerosNaturales(ListaNumerosNaturales &lista, int num
     }
     else
     {
-        printf("El numero a ingresar debe ser mayor o igual a 0");
+        printf("El numero a ingresar debe ser mayor o igual a 0\n");
     }
 
 }
