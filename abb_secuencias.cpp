@@ -76,6 +76,7 @@ void agregarNumeroASecuenciaDelArbolDeSecuencias(ABBSecuencias abb, string nombr
     if (abb != NULL) {
        if (compararStrings(abb->secuencia.nombre, nombre)) {
            agregarNumeroASecuencia(abb->secuencia, numero);
+           mostrarSecuencia(abb->secuencia);
        } else {
            if (primerStringAlfabeticameteMenor(nombre, abb->secuencia.nombre)) {
                agregarNumeroASecuenciaDelArbolDeSecuencias(abb->hizq, nombre, numero);

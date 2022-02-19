@@ -92,13 +92,20 @@ boolean primerStringAlfabeticameteMenor(string a, string b) {
         largoMenorString = largoStringB;
     }
 
+    boolean sonIdenticos = TRUE;
     boolean esAlfabeticameteMenor = TRUE;
     for (int i = 0; i < largoMenorString; ++i) {
         if (b[i] < a[i]) {
             esAlfabeticameteMenor = FALSE;
+            sonIdenticos = FALSE;
         } else if (b[i] > a[i]) {
+            sonIdenticos = FALSE;
             break;
         }
+    }
+
+    if (sonIdenticos && largoStringB < largoStringA) {
+        esAlfabeticameteMenor = FALSE;
     }
 
     return esAlfabeticameteMenor;
