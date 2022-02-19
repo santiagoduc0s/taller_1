@@ -28,8 +28,7 @@ void reverse(ABBSecuencias &abb, string nombreSecuencia, string nombreNuevaSecue
         if (!existeSecuenciaEnArbolDeSecuencias(abb, nombreNuevaSecuencia)) {
 
             Secuencia secuenciaBuscada = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia);
-            Secuencia nuevaSecuencia = crearSecuencia(nombreNuevaSecuencia,
-                                                      invertirListaDeNumerosNaturales(secuenciaBuscada.lista));
+            Secuencia nuevaSecuencia = crearSecuencia(nombreNuevaSecuencia, invertirListaDeNumerosNaturales(secuenciaBuscada.lista));
             agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
             mostrarSecuencia(nuevaSecuencia);
         } else {
@@ -69,13 +68,10 @@ void concat(ABBSecuencias &abb, string nombreSecuenciaA, string nombreSecuenciaB
                 Secuencia secuenciaA = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuenciaA);
                 Secuencia secuenciaB = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuenciaB);
 
-                Secuencia nuevaSecuencia = crearSecuencia(nombreNuevaSecuencia,
-                                                          unirDosListasDeNumerosNaturales(secuenciaA.lista,
-                                                                                          secuenciaB.lista));
+                Secuencia nuevaSecuencia = crearSecuencia(nombreNuevaSecuencia, unirDosListasDeNumerosNaturales(secuenciaA.lista, secuenciaB.lista));
                 agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
                 mostrarSecuencia(nuevaSecuencia);
             } else {
-                printf("jeee");
                 printf("Ya existe una secuencia con ese nombre cargada\n");
             }
         } else {
