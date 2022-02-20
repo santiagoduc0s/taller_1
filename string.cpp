@@ -55,8 +55,7 @@ void mostrarString(string str) {
     }
 }
 
-boolean compararStrings(string a, string b)
-{
+boolean compararStrings(string a, string b) {
     boolean equal = TRUE;
     int i = 0;
     while (a[i] != '\0' && b[i] != '\0' && equal == TRUE) {
@@ -119,51 +118,35 @@ int convertirStringANumero(string str) {
     return suma;
 }
 
-boolean stringTerminaEnPuntoTxt(string str)
-{
+boolean stringTerminaEnPuntoTxt(string str) {
     int i = 0;
     boolean termina = FALSE;
 
-    while (str[i] != '\0' && !termina)
-    {
-        if (str[i] == '.')
-        {
+    while (str[i] != '\0' && !termina) {
+        if (str[i] == '.') {
             i++;
-            if (str[i] == 't')
-            {
+            if (str[i] == 't') {
                 i++;
-                if (str[i] == 'x')
-                {
+                if (str[i] == 'x') {
                     i++;
-                    if (str[i] == 't')
-                    {
+                    if (str[i] == 't') {
                         i++;
-                        if (str[i] == '\0')
-                        {
+                        if (str[i] == '\0') {
                             termina = TRUE;
                         }
-
                     }
                 }
-
             }
         }
         i++;
-
     }
-
     return termina;
-
-
-
 }
 
-boolean stringContieneSoloNumeros(string s)
-{
+boolean stringContieneSoloNumeros(string s) {
     boolean contieneSoloNumeros = TRUE;
     int i = 0;
-    while ((s[i] != '\0') && contieneSoloNumeros)
-    {
+    while ((s[i] != '\0') && contieneSoloNumeros) {
         if (s[i] >= 48 && s[i] <= 57)
             i++;
         else
@@ -172,12 +155,10 @@ boolean stringContieneSoloNumeros(string s)
     return contieneSoloNumeros;
 }
 
-boolean stringContieneSoloLetras(string s)
-{
+boolean stringContieneSoloLetras(string s) {
     boolean contieneSoloLetras = TRUE;
     int i = 0;
-    while ((s[i] != '\0') && contieneSoloLetras)
-    {
+    while ((s[i] != '\0') && contieneSoloLetras) {
         if ((s[i] >= 65 && s[i] <= 90) || (s[i] >= 97 && s[i] <= 122))
             i++;
         else
