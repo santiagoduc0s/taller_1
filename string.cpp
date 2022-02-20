@@ -6,12 +6,10 @@ string crearString() {
     return str;
 }
 
-
 void liberarString(string &str) {
     delete[] str;
     str = NULL;
 }
-
 
 int largoString(string str) {
     int i = 0;
@@ -19,7 +17,6 @@ int largoString(string str) {
         i++;
     return i;
 }
-
 
 void copiarString(string strA, string &strB) {
     int length = largoString(strA);
@@ -32,7 +29,6 @@ void copiarString(string strA, string &strB) {
     }
     strB[i] = '\0';
 }
-
 
 void cargarString(string &str) {
     string aux;
@@ -51,7 +47,6 @@ void cargarString(string &str) {
     delete[] aux;
 }
 
-
 void mostrarString(string str) {
     int i = 0;
     while (str[i] != '\0') {
@@ -59,7 +54,6 @@ void mostrarString(string str) {
         i++;
     }
 }
-
 
 boolean compararStrings(string a, string b)
 {
@@ -78,7 +72,6 @@ boolean compararStrings(string a, string b)
 
     return equal;
 }
-
 
 boolean primerStringAlfabeticameteMenor(string a, string b) {
 
@@ -110,7 +103,6 @@ boolean primerStringAlfabeticameteMenor(string a, string b) {
 
     return esAlfabeticameteMenor;
 }
-
 
 int convertirStringANumero(string str) {
     int multiplicoPor = 1;
