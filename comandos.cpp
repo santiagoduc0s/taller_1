@@ -17,7 +17,7 @@ void insback(ABBSecuencias &abb, string nombreSecuencia, int numero) {
     if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
         agregarNumeroASecuenciaDelArbolDeSecuencias(abb, nombreSecuencia, numero);
     } else {
-        printf("No existe una secuencia con ese nombre cargada en memoria\n");
+        printf("No existe una secuencia con ese nombre\n");
     }
 }
 
@@ -35,7 +35,7 @@ void reverse(ABBSecuencias &abb, string nombreSecuencia, string nombreNuevaSecue
             printf("Ya existe una secuencia con ese nombre cargada\n");
         }
     } else {
-        printf("No existe una secuencia con ese nombre cargada en memoria\n");
+        printf("No existe una secuencia con ese nombre\n");
     }
 }
 
@@ -44,18 +44,18 @@ void show(ABBSecuencias abb) {
     if (abb != NULL) {
         listarArbolDeSecuencias(abb);
     } else {
-        printf("No hay ninguna secuencia cargada en memoria");
+        printf("No hay ninguna secuencia cargada\n");
     }
 }
 
 
-void suma(ABBSecuencias abb, string nombreSecuencia) {
+void sum(ABBSecuencias abb, string nombreSecuencia) {
 
     if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
         Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia);
         printf("%i\n", sumarValoresDeListaDeNumerosNaturales(secuencia.lista));
     } else {
-        printf("No existe una secuencia con ese nombre cargada en memoria\n");
+        printf("No existe una secuencia con ese nombre\n");
     }
 }
 
@@ -75,10 +75,10 @@ void concat(ABBSecuencias &abb, string nombreSecuenciaA, string nombreSecuenciaB
                 printf("Ya existe una secuencia con ese nombre cargada\n");
             }
         } else {
-            printf("No existe una secuencia con ese nombre cargada en memoria\n");
+            printf("No existe una secuencia con ese nombre\n");
         }
     } else {
-        printf("No existe una secuencia con ese nombre cargada en memoria\n");
+        printf("No existe una secuencia con ese nombre\n");
     }
 }
 
@@ -111,7 +111,7 @@ void save(ABBSecuencias &abb, string nombreSecuencia, string nombreArchivo) {
 
 
     } else {
-        printf("No existe una secuencia con ese nombre cargada en memoria\n");
+        printf("No existe una secuencia con ese nombre\n");
     }
 }
 
@@ -137,5 +137,4 @@ void exit(ABBSecuencias &abb) {
     if (abb != NULL) {
         liberarArbolDeSecuencias(abb);
     }
-    printf("Hasta la proxima!");
 }
