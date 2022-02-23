@@ -5,7 +5,13 @@ ListaStrings crearListaDeStrings() {
     return NULL;
 }
 
-void liberarListaDeStrings(ListaStrings &lista) {}
+void liberarListaDeStrings(ListaStrings &lista) {
+    if (lista != NULL) {
+        liberarListaDeStrings(lista->nodoSiguiente);
+        liberarString(lista->texto);
+        delete lista;
+    }
+}
 
 boolean listaDeStringsEsVacia(ListaStrings lista) {
     return boolean(lista == NULL);
@@ -46,7 +52,7 @@ ListaStrings convertirStringEnUnaListaDeStrings(string texto) {
     int indiceNuevoString = 0;
     boolean leyendoString = FALSE;
 
-    printf("|"); // testing
+    // printf("|"); // testing
 
     // extraer palabras de "texto" en "nuevoString" separados por espacios
     for (indiceTexto = 0; indiceTexto < largoString(texto); indiceTexto++) {
@@ -69,8 +75,8 @@ ListaStrings convertirStringEnUnaListaDeStrings(string texto) {
         nuevoString[indiceNuevoString] = '\0';
     }
 
-    mostrarString(nuevoString); // testing
-    printf("|\n\n"); // testing
+    // mostrarString(nuevoString); // testing
+    // printf("|\n\n"); // testing
 
     string palabra = new char[MAX_LENGTH_STRING - 1];
     int indicePalabra = 0;
@@ -94,6 +100,7 @@ ListaStrings convertirStringEnUnaListaDeStrings(string texto) {
     }
 
     mostrarListaDeStrings(lista); // testing
+    printf("\n"); // testing
 
     delete[] palabra;
     delete[] nuevoString;

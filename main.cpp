@@ -4,10 +4,11 @@
 
 // testing
 #include "./test/lista_numeros_naturales_test.h"
+#include "./test/abb_secuencias_test.h"
 #include "./test/comandos_test.h"
 
 int main() {
 
-    comandosTest();
+
 
 }

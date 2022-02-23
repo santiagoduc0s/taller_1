@@ -16,7 +16,7 @@ void comandosTest() {
     printf("\n");
 
     printf("- Sumar secuencia \"pepe\"\n");
-    suma(abb, string("pepe"));
+    sum(abb, string("pepe"));
     printf("\n");
 
     printf("- Agregar numero 4 a la secuencia \"pepe\"\n");
@@ -31,8 +31,12 @@ void comandosTest() {
     insback(abb, string("pepe"), 2);
     printf("\n");
 
+    printf("- Agregar numero -7 a la secuencia \"pepe\"\n");
+    insback(abb, string("pepe"), -7);
+    printf("\n");
+
     printf("- Sumar secuencia \"pepe\"\n");
-    suma(abb, string("pepe"));
+    sum(abb, string("pepe"));
     printf("\n");
 
     printf("- Concatenar secuencia \"pepe\" con \"pepe\" -> crear \"pepe_concatenacion\"\n");

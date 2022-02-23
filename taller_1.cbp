@@ -58,6 +58,9 @@
 		<Unit filename="./test/lista_numeros_naturales_test.cpp" />
         <Unit filename="./test/lista_numeros_naturales_test.h" />
 
+        <Unit filename="./test/abb_secuencias_test.cpp" />
+        <Unit filename="./test/abb_secuencias_test.h" />
+
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

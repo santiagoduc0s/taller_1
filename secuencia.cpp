@@ -16,7 +16,7 @@ Secuencia crearSecuencia(string nombre, ListaNumerosNaturales lista) {
 }
 
 void liberarSecuencia(Secuencia &secuencia) {
-    // liberarString(secuencia.nombre); // -> funciona si el string es cargado mediante la función "cargarString"
+     liberarString(secuencia.nombre); // -> funciona si el string es cargado mediante la función "cargarString"
     liberarListaDeNumerosNaturales(secuencia.lista);
 }
 
