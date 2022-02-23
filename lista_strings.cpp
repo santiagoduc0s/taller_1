@@ -9,6 +9,7 @@ void liberarListaDeStrings(ListaStrings &lista) {
     if (lista != NULL) {
         liberarListaDeStrings(lista->nodoSiguiente);
         liberarString(lista->texto);
+        delete lista;
     }
 }
 

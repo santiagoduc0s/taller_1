@@ -27,6 +27,6 @@ boolean existeSecuenciaEnArbolDeSecuencias(ABBSecuencias abb, string nombre);
 
 Secuencia buscarSecuenciaEnArbolDeSecuencias(ABBSecuencias abb, string nombre);
 
-void agregarNumeroASecuenciaDelArbolDeSecuencias(ABBSecuencias abb, string nombre, int numero);
+void agregarNumeroASecuenciaDelArbolDeSecuencias(ABBSecuencias &abb, string nombre, int numero);
 
 #endif

@@ -20,28 +20,20 @@ boolean listaDeNumerosNaturalesEsVacia(ListaNumerosNaturales lista) {
 
 
 void agregarNumeroAListaDeNumerosNaturales(ListaNumerosNaturales &lista, int num) {
-    if (num >= 0)
-    {
-        ListaNumerosNaturales nodo = new NodoNumeroNatural;
-        if (listaDeNumerosNaturalesEsVacia(lista)) {
-            nodo->valor = num;
-            nodo->nodoSiguiente = NULL;
-            lista = nodo;
-        } else {
-            ListaNumerosNaturales listaAux = lista;
-            while (listaAux->nodoSiguiente != NULL) {
-                listaAux = listaAux->nodoSiguiente;
-            }
-            nodo->valor = num;
-            nodo->nodoSiguiente = NULL;
-            listaAux->nodoSiguiente = nodo;
+    ListaNumerosNaturales nodo = new NodoNumeroNatural;
+    if (listaDeNumerosNaturalesEsVacia(lista)) {
+        nodo->valor = num;
+        nodo->nodoSiguiente = NULL;
+        lista = nodo;
+    } else {
+        ListaNumerosNaturales listaAux = lista;
+        while (listaAux->nodoSiguiente != NULL) {
+            listaAux = listaAux->nodoSiguiente;
         }
+        nodo->valor = num;
+        nodo->nodoSiguiente = NULL;
+        listaAux->nodoSiguiente = nodo;
     }
-    else
-    {
-        printf("El numero a ingresar debe ser mayor o igual a 0\n");
-    }
-
 }
 
 
@@ -70,6 +62,7 @@ int tamanioDeListaDeNumerosNaturales(ListaNumerosNaturales lista) {
 
 
 ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales lista) {
+    // todo: revisar (agregar los elementos por adelante)
     int *numeros = new int[tamanioDeListaDeNumerosNaturales(lista)];
     int i = 0;
     while (lista != NULL) {
@@ -116,7 +109,7 @@ ListaNumerosNaturales unirDosListasDeNumerosNaturales(ListaNumerosNaturales list
 
 
 void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE *archivo) {
-
+    // todo: preguntar cuando termina el archivo
     while (lista != NULL) {
         fwrite(&lista->valor, sizeof(int), 1, archivo);
         lista = lista->nodoSiguiente;
@@ -127,7 +120,7 @@ void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE 
 
 
 ListaNumerosNaturales leerListaDeNumerosNaturalesDeArchivo(FILE *archivo) {
-
+    // todo: preguntar cuando termina el archivo
     ListaNumerosNaturales lista = crearListaDeNumerosNaturales();
     int buffer = -1;
 

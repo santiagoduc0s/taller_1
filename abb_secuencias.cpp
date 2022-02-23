@@ -7,16 +7,11 @@ ABBSecuencias crearArbolDeSecuencias() {
 
 void liberarArbolDeSecuencias(ABBSecuencias &abb) {
 
-    if (abb->hizq == NULL && abb->hder == NULL) {
+    if (abb != NULL) {
+        listarArbolDeSecuencias(abb->hizq);
+        listarArbolDeSecuencias(abb->hder);
         liberarSecuencia(abb->secuencia);
-    } else {
-        if (abb->hizq != NULL) {
-            liberarArbolDeSecuencias(abb->hizq);
-        }
-
-        if (abb->hder != NULL) {
-            liberarArbolDeSecuencias(abb->hder);
-        }
+        delete abb;
     }
 }
 
@@ -28,7 +23,7 @@ void agregarSecuenciaAlArbolDeSecuancias(ABBSecuencias &abb, Secuencia secuencia
         abb->hizq = NULL;
         abb->hder = NULL;
     } else {
-        if (primerStringAlfabeticameteMenor(secuencia.nombre, abb->secuencia.nombre)) {
+        if (primerStringAlfabeticameteMenor(darNombre(secuencia), darNombre(abb->secuencia))) {
             agregarSecuenciaAlArbolDeSecuancias(abb->hizq, secuencia);
         } else {
             agregarSecuenciaAlArbolDeSecuancias(abb->hder, secuencia);
@@ -52,17 +47,21 @@ boolean existeSecuenciaEnArbolDeSecuencias(ABBSecuencias abb, string nombre) {
     } else if (compararStrings(abb->secuencia.nombre, nombre)) {
         return TRUE;
     } else {
-        return boolean(existeSecuenciaEnArbolDeSecuencias(abb->hizq, nombre) || existeSecuenciaEnArbolDeSecuencias(abb->hder, nombre));
+        if (primerStringAlfabeticameteMenor(nombre, darNombre(abb->secuencia))) {
+            return boolean(existeSecuenciaEnArbolDeSecuencias(abb->hizq, nombre));
+        } else {
+            return boolean(existeSecuenciaEnArbolDeSecuencias(abb->hder, nombre));
+        }
     }
 }
 
 
 Secuencia buscarSecuenciaEnArbolDeSecuencias(ABBSecuencias abb, string nombre) {
     if (abb != NULL) {
-        if (compararStrings(abb->secuencia.nombre, nombre)) {
+        if (compararStrings(darNombre(abb->secuencia), nombre)) {
             return abb->secuencia;
         } else {
-            if (primerStringAlfabeticameteMenor(nombre, abb->secuencia.nombre)) {
+            if (primerStringAlfabeticameteMenor(nombre, darNombre(abb->secuencia))) {
                 return buscarSecuenciaEnArbolDeSecuencias(abb->hizq, nombre);
             } else {
                 return buscarSecuenciaEnArbolDeSecuencias(abb->hder, nombre);
@@ -72,13 +71,13 @@ Secuencia buscarSecuenciaEnArbolDeSecuencias(ABBSecuencias abb, string nombre) {
 }
 
 
-void agregarNumeroASecuenciaDelArbolDeSecuencias(ABBSecuencias abb, string nombre, int numero) {
+void agregarNumeroASecuenciaDelArbolDeSecuencias(ABBSecuencias &abb, string nombre, int numero) {
     if (abb != NULL) {
        if (compararStrings(abb->secuencia.nombre, nombre)) {
            agregarNumeroASecuencia(abb->secuencia, numero);
            mostrarSecuencia(abb->secuencia);
        } else {
-           if (primerStringAlfabeticameteMenor(nombre, abb->secuencia.nombre)) {
+           if (primerStringAlfabeticameteMenor(nombre, darNombre(abb->secuencia))) {
                agregarNumeroASecuenciaDelArbolDeSecuencias(abb->hizq, nombre, numero);
            } else {
                agregarNumeroASecuenciaDelArbolDeSecuencias(abb->hder, nombre, numero);
