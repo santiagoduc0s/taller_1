@@ -82,7 +82,7 @@ ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales list
 ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales lista)
 {
     ListaNumerosNaturales resultado = NULL;
-    ListaNumerosNaturales sig;
+    ListaNumerosNaturales sig = NULL;
 
     while (lista != NULL)
     {
