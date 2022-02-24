@@ -8,7 +8,5 @@
 #include "./test/comandos_test.h"
 
 int main() {
-
-
-
+    listaNumerosNaturalesTest();
 }

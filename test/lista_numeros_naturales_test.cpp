@@ -41,6 +41,13 @@ void listaNumerosNaturalesTest() {
     mostrarListaDeNumerosNaturales(lista);
     printf("\n\n");
 
+    printf("Lista inversa: ");
+    ListaNumerosNaturales r = crearListaDeNumerosNaturales();
+    r = invertirListaDeNumerosNaturales(lista);
+    mostrarListaDeNumerosNaturales(r);
+    printf("\n");
+
+
 
     printf("- Se suman los numeros de la lista\n");
     printf("Suma: %i\n", sumarValoresDeListaDeNumerosNaturales(lista));
