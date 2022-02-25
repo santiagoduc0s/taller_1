@@ -60,29 +60,11 @@ int tamanioDeListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     return i;
 }
 
-/* FORMA VIEJA: Utilizando arreglo dinamico
-ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales lista) {
-    // todo: revisar (agregar los elementos por adelante)
-    int *numeros = new int[tamanioDeListaDeNumerosNaturales(lista)];
-    int i = 0;
-    while (lista != NULL) {
-        numeros[i] = lista->valor;
-        i++;
-        lista = lista->nodoSiguiente;
-    }
-
-    ListaNumerosNaturales nuevaLista = crearListaDeNumerosNaturales();
-    for (i = i - 1; i >= 0; --i) {
-        agregarNumeroAListaDeNumerosNaturales(nuevaLista, numeros[i]);
-    }
-    delete[] numeros;
-    return nuevaLista;
-}*/
 
 ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales lista)
 {
     ListaNumerosNaturales resultado = NULL;
-    ListaNumerosNaturales sig;
+    ListaNumerosNaturales sig = NULL;
 
     while (lista != NULL)
     {
