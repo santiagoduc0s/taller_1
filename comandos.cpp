@@ -21,7 +21,6 @@ void insback(ABBSecuencias &abb, string nombreSecuencia, int numero) {
     }
 }
 
-
 void reverse(ABBSecuencias &abb, string nombreSecuencia, string nombreNuevaSecuencia) {
 
     if (existeSecuenciaEnArbolDeSecuencias(abb, nombreSecuencia)) {
