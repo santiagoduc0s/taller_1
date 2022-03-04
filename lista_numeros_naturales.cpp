@@ -36,6 +36,13 @@ void agregarNumeroAListaDeNumerosNaturales(ListaNumerosNaturales &lista, int num
     }
 }
 
+void agregarNumeroPorDelanteALista(ListaNumerosNaturales &lista, int numero) {
+    ListaNumerosNaturales aux = new NodoNumeroNatural;
+    aux->valor = numero;
+    aux->nodoSiguiente = lista;
+    lista = aux;
+}
+
 
 void mostrarListaDeNumerosNaturales(ListaNumerosNaturales lista) {
     printf("[ ");
@@ -62,15 +69,11 @@ int tamanioDeListaDeNumerosNaturales(ListaNumerosNaturales lista) {
 
 ListaNumerosNaturales invertirListaDeNumerosNaturales(ListaNumerosNaturales lista)
 {
-    ListaNumerosNaturales resultado = NULL;
-    ListaNumerosNaturales sig = NULL;
+    ListaNumerosNaturales resultado = crearListaDeNumerosNaturales();
 
-    while (lista != NULL)
-    {
-        sig = lista->nodoSiguiente;
-        lista->nodoSiguiente = resultado;
-        resultado = lista;
-        lista = sig;
+    while (lista != NULL) {
+        agregarNumeroPorDelanteALista(resultado, lista->valor);
+        lista = lista->nodoSiguiente;
     }
 
     return resultado;
