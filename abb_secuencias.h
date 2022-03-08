@@ -25,8 +25,10 @@ void agregarSecuenciaAlArbolDeSecuancias(ABBSecuencias &abb, Secuencia secuencia
 
 boolean existeSecuenciaEnArbolDeSecuencias(ABBSecuencias abb, string nombre);
 
+///PRECONDICION: existe una secuencia con ese nombre
 Secuencia buscarSecuenciaEnArbolDeSecuencias(ABBSecuencias abb, string nombre);
 
+///PRECONDICION: numero tiene que ser mayor o igual a 0
 void agregarNumeroASecuenciaDelArbolDeSecuencias(ABBSecuencias &abb, string nombre, int numero);
 
 #endif

@@ -16,14 +16,19 @@ int main() {
     string tercerString = crearString();
     string cuartoString = crearString();
 
+    printf("Bienvenido al creador de secuencias. Por favor, ingrese un comando para continuar...\n\n");
+    help();
+
+
     do {
 
-        fflush(stdin);
-        cargarString(input);
+        fflush(stdin); //Limpia el input
+        printf("\n-> ");
+        cargarString(input); //Carga el string con los comandos
 
-        if (largoString(input) > 0) {
+        if (largoString(input) > 0) { //si hay texto
 
-            listaInput = convertirStringEnUnaListaDeStrings(input);
+            listaInput = convertirStringEnUnaListaDeStrings(input); //La convierte en una lista de strings en base a los espacios
 
             primerString = darStringEnLaPosicion(listaInput, 1);
 
@@ -191,6 +196,18 @@ int main() {
                 printf("Nos vemos pronto\n");
                 break;
             }
+
+            else if (compararStrings(primerString, string("clear")))
+            {
+               if (tamanioDeListaDeStrings(listaInput) == 1)
+                    clearScreen();
+            }
+            else if (compararStrings(primerString, string("help")))
+            {
+               if (tamanioDeListaDeStrings(listaInput) == 1)
+                    help();
+            }
+
             else {
                 printf("El comando ingresado no existe en el sistema\n");
             }

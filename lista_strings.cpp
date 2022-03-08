@@ -47,27 +47,26 @@ void mostrarListaDeStrings(ListaStrings lista) {
 
 ListaStrings convertirStringEnUnaListaDeStrings(string texto) {
 
-    string nuevoString = new char[MAX_LENGTH_STRING - 1];
+    string nuevoString = new char[MAX_LENGTH_STRING - 1]; //string precioso y mejorado. Con los espacios hermosos.
     int indiceTexto;
     int indiceNuevoString = 0;
     boolean leyendoString = FALSE;
 
-    // printf("|"); // testing
-
     // extraer palabras de "texto" en "nuevoString" separados por espacios
     for (indiceTexto = 0; indiceTexto < largoString(texto); indiceTexto++) {
-        if (texto[indiceTexto] != ' ') {
+        if (texto[indiceTexto] != ' ') { //es letra
             leyendoString = TRUE;
             nuevoString[indiceNuevoString] = texto[indiceTexto];
             indiceNuevoString++;
         } else {
-            if (leyendoString && indiceTexto) {
+            if (leyendoString && indiceTexto != 0) {
                 nuevoString[indiceNuevoString] = ' ';
                 indiceNuevoString++;
             }
             leyendoString = FALSE;
         }
     }
+
     if (nuevoString[indiceNuevoString - 1] != ' ') {
         nuevoString[indiceNuevoString] = ' ';
         nuevoString[indiceNuevoString + 1] = '\0';
@@ -84,10 +83,10 @@ ListaStrings convertirStringEnUnaListaDeStrings(string texto) {
 
     // convertir "nuevoString" en una lista
     for (indiceNuevoString = 0; indiceNuevoString < largoString(nuevoString); indiceNuevoString++) {
-        if (nuevoString[indiceNuevoString] != ' ') {
+        if (nuevoString[indiceNuevoString] != ' ') { // es una letra
             palabra[indicePalabra] = nuevoString[indiceNuevoString];
             indicePalabra++;
-        } else {
+        } else { //si es un espacio
             palabra[indicePalabra] = '\0';
             string stringAgregarLista = crearString();
             copiarString(palabra, stringAgregarLista);
@@ -99,9 +98,7 @@ ListaStrings convertirStringEnUnaListaDeStrings(string texto) {
         }
     }
 
-    mostrarListaDeStrings(lista); // testing
-    printf("\n"); // testing
-
+    //mostrarListaDeStrings(lista); // testing
     delete[] palabra;
     delete[] nuevoString;
 
