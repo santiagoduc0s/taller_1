@@ -1,7 +1,6 @@
 // production
 #include "comandos.h"
 #include "lista_strings.h"
-#include "abb_secuencias.h"
 
 // testing
 //#include "./test/lista_numeros_naturales_test.h"
@@ -27,8 +26,7 @@ int main() {
         printf("\n-> ");
         cargarString(input); //Carga el string con los comandos
 
-        if (largoString(input) > 0) //si hay texto
-        {
+        if (largoString(input) > 0) { //si hay texto
 
             listaInput = convertirStringEnUnaListaDeStrings(input); //La convierte en una lista de strings en base a los espacios
 
@@ -36,32 +34,17 @@ int main() {
 
             if (compararStrings(primerString, string("create"))) // ----------------------------------- create
             {
-                if (tamanioDeListaDeStrings(listaInput) == 2)
-                {
+                if (tamanioDeListaDeStrings(listaInput) == 2) {
+
                     segundoString = darStringEnLaPosicion(listaInput, 2);
 
-                    if (stringContieneSoloLetras(segundoString))
-                    {
-                        if (!existeSecuenciaEnArbolDeSecuencias(abb, segundoString))
-                        {
-                            Secuencia secuencia = crearSecuencia(segundoString, NULL);
-                            agregarSecuenciaAlArbolDeSecuancias(abb, secuencia);
-                            mostrarSecuencia(secuencia);
-                        }
-                        else
-                        {
-                            printf("Ya existe una secuencia con ese nombre cargada\n");
-                        }
-
-                    }
-                    else
-                    {
+                    if (stringContieneSoloLetras(segundoString)) {
+                        create(abb, segundoString);
+                    } else {
                         printf("El nombre de la secuencia ingresado es invalido\n");
                     }
 
-                }
-                else
-                {
+                } else {
                     printf("La cantidad de parametros ingresados es incorrecta\n");
                 }
 
@@ -74,16 +57,9 @@ int main() {
                     tercerString = darStringEnLaPosicion(listaInput, 3);
 
                     if (stringContieneSoloLetras(segundoString)) {
-                        if (stringContieneSoloNumeros(tercerString))
-                        {
-                            if (existeSecuenciaEnArbolDeSecuencias(abb, segundoString)) {
-                                agregarNumeroASecuenciaDelArbolDeSecuencias(abb, segundoString, convertirStringANumero(tercerString));
-                            } else {
-                                printf("No existe una secuencia con ese nombre\n");
-                            }
-                        }
-                        else
-                        {
+                        if (stringContieneSoloNumeros(tercerString)) {
+                            insback(abb, segundoString, convertirStringANumero(tercerString));
+                        } else {
                             printf("El valor que intenta agregar es invalido\n");
                         }
 
@@ -100,14 +76,7 @@ int main() {
             {
                 if (tamanioDeListaDeStrings(listaInput) == 1) {
 
-                    if (abb != NULL)
-                    {
-                        listarArbolDeSecuencias(abb);
-                    }
-                    else
-                    {
-                        printf("No hay ninguna secuencia cargada\n");
-                    }
+                    show(abb);
 
                 } else {
                     printf("La cantidad de parametros ingresados es incorrecta\n");
@@ -121,19 +90,8 @@ int main() {
                     segundoString = darStringEnLaPosicion(listaInput, 2);
 
                     if (stringContieneSoloLetras(segundoString)) {
-                        if (existeSecuenciaEnArbolDeSecuencias(abb, segundoString))
-                        {
-                            Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, segundoString);
-
-                            printf("%i\n", sumarValoresDeListaDeNumerosNaturales(secuencia.lista));
-                        }
-                        else
-                        {
-                            printf("No existe una secuencia con ese nombre\n");
-                        }
-                    }
-                    else
-                    {
+                        sum(abb, segundoString);
+                    } else {
                         printf("El nombre de la secuencia ingresado es invalido\n");
                     }
 
@@ -152,29 +110,9 @@ int main() {
 
                     if (stringContieneSoloLetras(segundoString) &&
                         stringContieneSoloLetras(tercerString) &&
-                        stringContieneSoloLetras(cuartoString))
-                    {
-                        if (existeSecuenciaEnArbolDeSecuencias(abb, segundoString)) {
-                            if (existeSecuenciaEnArbolDeSecuencias(abb, tercerString)) {
-                                if (!existeSecuenciaEnArbolDeSecuencias(abb, cuartoString)) {
-                                    Secuencia secuenciaA = buscarSecuenciaEnArbolDeSecuencias(abb, segundoString);
-                                    Secuencia secuenciaB = buscarSecuenciaEnArbolDeSecuencias(abb, tercerString);
-
-                                    Secuencia nuevaSecuencia = crearSecuencia(cuartoString, unirDosListasDeNumerosNaturales(secuenciaA.lista, secuenciaB.lista));
-                                    agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
-                                    mostrarSecuencia(nuevaSecuencia);
-                                } else {
-                                    printf("Ya existe una secuencia con ese nombre cargada\n");
-                                }
-                            } else {
-                                printf("No existe una secuencia con ese nombre\n");
-                            }
-                        }
-                        else {
-                            printf("No existe una secuencia con ese nombre\n");
-                        }
-                    }
-                    else {
+                        stringContieneSoloLetras(cuartoString)) {
+                        concat(abb, segundoString, tercerString, cuartoString);
+                    } else {
                         printf("El nombre de las secuencias debe estar compuesto por solo letras\n");
                     }
 
@@ -191,30 +129,10 @@ int main() {
                     segundoString = darStringEnLaPosicion(listaInput, 2);
                     tercerString = darStringEnLaPosicion(listaInput, 3);
 
-                    if (stringContieneSoloLetras(segundoString) && stringContieneSoloLetras(tercerString))
-                    {
-                        if (existeSecuenciaEnArbolDeSecuencias(abb, segundoString)) {
-                            if (!existeSecuenciaEnArbolDeSecuencias(abb, tercerString))
-                            {
-
-                                Secuencia secuenciaBuscada = buscarSecuenciaEnArbolDeSecuencias(abb, segundoString);
-                                Secuencia nuevaSecuencia = crearSecuencia(tercerString, invertirListaDeNumerosNaturales(secuenciaBuscada.lista));
-                                agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
-                                mostrarSecuencia(nuevaSecuencia);
-                            }
-                            else
-                            {
-                                printf("Ya existe una secuencia con ese nombre cargada\n");
-                            }
-                        }
-                        else
-                        {
-                            printf("No existe una secuencia con ese nombre\n");
-                        }
-
-                    }
-                    else
-                    {
+                    if (stringContieneSoloLetras(segundoString) &&
+                        stringContieneSoloLetras(tercerString)) {
+                        reverse(abb, segundoString, tercerString);
+                    } else {
                         printf("El nombre de las secuencias debe estar compuesto por solo letras\n");
                     }
 
@@ -232,41 +150,9 @@ int main() {
 
                     if (stringContieneSoloLetras(segundoString)) {
 
-                        if (stringTerminaEnPuntoTxt(tercerString))
-                        {
-                            if (existeSecuenciaEnArbolDeSecuencias(abb, segundoString))
-                            {
-                                Secuencia secuencia = buscarSecuenciaEnArbolDeSecuencias(abb, segundoString);
-
-                                boolean sobrescribirArchivo = TRUE;
-                                FILE *archivo = fopen(tercerString, "rb");
-
-                                if (archivo != NULL)
-                                {
-                                    printf("El archivo ");
-                                    mostrarString(tercerString);
-                                    printf(" ya existe, desea sobreescribirlo? ");
-                                    cargarBoolean(sobrescribirArchivo);
-                                    fclose(archivo);
-                                }
-
-                                if (sobrescribirArchivo)
-                                {
-                                    archivo = fopen(tercerString, "wb");
-                                    escribirListaDeNumerosNaturalesEnArchivo(secuencia.lista, archivo);
-                                    mostrarString(segundoString);
-                                    printf(" almacenada correctamente en ");
-                                    mostrarString(tercerString);
-                                    printf("\n");
-                                    fclose(archivo);
-                                }
-                            }
-                            else
-                            {
-                                printf("No existe una secuencia con ese nombre\n");
-                            }
-                        }
-                        else {
+                        if (stringTerminaEnPuntoTxt(tercerString)) {
+                            save(abb, segundoString, tercerString);
+                        } else {
                             printf("El nombre del archivo debe finalizar con \".txt\"\n");
                         }
 
@@ -289,26 +175,7 @@ int main() {
                     if (stringTerminaEnPuntoTxt(segundoString)) {
 
                         if (stringContieneSoloLetras(tercerString)) {
-                            if (!existeSecuenciaEnArbolDeSecuencias(abb, tercerString))
-                            {
-
-                                FILE *archivo = fopen(segundoString, "rb");
-                                if (archivo != NULL)
-                                {
-                                    Secuencia nuevaSecuencia = crearSecuencia(tercerString, leerListaDeNumerosNaturalesDeArchivo(archivo));
-                                    agregarSecuenciaAlArbolDeSecuancias(abb, nuevaSecuencia);
-                                    mostrarSecuencia(nuevaSecuencia);
-                                }
-                                else
-                                {
-                                    printf("No existe un archivo con ese nombre\n");
-                                }
-                                fclose(archivo);
-                            }
-                            else
-                            {
-                                printf("Ya existe una secuencia con ese nombre cargada\n");
-                            }
+                            load(abb, segundoString, tercerString);
                         } else {
                             printf("El nombre de las secuencias debe estar compuesto por solo letras\n");
                         }
@@ -324,10 +191,7 @@ int main() {
             }
             else if (compararStrings(primerString, string("exit"))) // -------------------------------- exit
             {
-                if (abb != NULL)
-                {
-                    liberarArbolDeSecuencias(abb);
-                }
+                exit(abb);
                 liberarListaDeStrings(listaInput);
                 printf("Nos vemos pronto\n");
                 break;
