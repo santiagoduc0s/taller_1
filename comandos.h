@@ -31,4 +31,9 @@ void load(ABBSecuencias &abb, string nombreArchivo, string nombreSecuencia);
 void exit(ABBSecuencias &abb);
 
 
+void clearScreen();
+
+
+void help();
+
 #endif

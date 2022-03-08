@@ -106,7 +106,7 @@ ListaNumerosNaturales unirDosListasDeNumerosNaturales(ListaNumerosNaturales list
     return nuevaLista;
 }
 
-
+/*
 void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE *archivo) {
     // todo: preguntar cuando termina el archivo
     while (lista != NULL) {
@@ -116,8 +116,31 @@ void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE 
     int endList = -1;
     fwrite(&endList, sizeof(int), 1, archivo);
 }
+*/
+
+void escribirListaDeNumerosNaturalesEnArchivo(ListaNumerosNaturales lista, FILE *archivo) {
+    while (lista != NULL) {
+        fwrite(&lista->valor, sizeof(int), 1, archivo);
+        lista = lista->nodoSiguiente;
+    }
+}
 
 
+ListaNumerosNaturales leerListaDeNumerosNaturalesDeArchivo(FILE *archivo) {
+    ListaNumerosNaturales lista = crearListaDeNumerosNaturales();
+    int buffer;
+
+    fread(&buffer, sizeof(int), 1, archivo);
+    while (!feof(archivo)) {
+        agregarNumeroAListaDeNumerosNaturales(lista, buffer);
+        fread(&buffer, sizeof(int), 1, archivo);
+    }
+
+    return lista;
+}
+
+
+/*
 ListaNumerosNaturales leerListaDeNumerosNaturalesDeArchivo(FILE *archivo) {
     // todo: preguntar cuando termina el archivo
     ListaNumerosNaturales lista = crearListaDeNumerosNaturales();
@@ -130,4 +153,4 @@ ListaNumerosNaturales leerListaDeNumerosNaturalesDeArchivo(FILE *archivo) {
     }
 
     return lista;
-}
+}*/

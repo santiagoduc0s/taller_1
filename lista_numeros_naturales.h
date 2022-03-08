@@ -24,6 +24,9 @@ boolean listaDeNumerosNaturalesEsVacia(ListaNumerosNaturales lista);
 void agregarNumeroAListaDeNumerosNaturales(ListaNumerosNaturales &lista, int num);
 
 
+void agregarNumeroPorDelanteALista(ListaNumerosNaturales &lista, int numero);
+
+
 void mostrarListaDeNumerosNaturales(ListaNumerosNaturales lista);
 
 
